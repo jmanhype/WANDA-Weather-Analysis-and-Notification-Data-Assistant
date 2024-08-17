@@ -1,0 +1,2 @@
+# WANDA-Weather-Analysis-and-Notification-Data-Assistant
+WANDA (Weather Analysis and Notification Data Assistant) is a Python/Node.js system that fetches and analyzes real-time weather data for any city. Using a state machine for workflow management, it determines notification needs based on current conditions. WANDA efficiently integrates data retrieval, processing, and user alerts in one package.
