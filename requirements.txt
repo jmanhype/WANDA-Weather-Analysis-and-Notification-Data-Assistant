@@ -1,0 +1,4 @@
+python-dotenv==0.19.2
+transitions==0.8.10
+aiohttp==3.8.1
+dspy==2.0.0
