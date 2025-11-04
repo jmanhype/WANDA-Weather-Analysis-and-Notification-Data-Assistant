@@ -1,0 +1,28 @@
+{
+  "name": "wanda-weather-notification",
+  "version": "1.0.0",
+  "description": "Weather Analysis and Notification Data Assistant - Node.js server component",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "weather",
+    "notification",
+    "ai",
+    "state-machine"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@cloudflare/ai-utils": "^0.0.14",
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "node-fetch": "^3.3.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
