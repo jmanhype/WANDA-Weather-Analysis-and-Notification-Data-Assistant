@@ -1,76 +1,56 @@
-# WANDA: Weather Analysis and Notification Data Assistant
+# WANDA
 
-## Overview
+Weather Analysis and Notification Data Assistant.
 
-WANDA (Weather Analysis and Notification Data Assistant) is an intelligent system that fetches weather data for a specified city and provides notifications based on current weather conditions. It combines a Python-based state machine for handling the weather analysis workflow with a Node.js server for processing weather data requests.
+## What It Does
 
-## Features
+Fetches weather data for a given city using Open-Meteo, runs it through a Python state machine to decide whether a notification is warranted, and returns the result via a Node.js server.
 
-- Fetches real-time weather data for any city
-- Analyzes weather conditions to determine if a notification is necessary
-- Uses a state machine to manage the workflow
-- Implements a Node.js server with mock AI capabilities for processing weather requests
+## Architecture
 
-## Prerequisites
+| Component | File | Role |
+|---|---|---|
+| State machine | `weather_notification.py` | Drives the fetch-analyze-notify workflow using the `transitions` library |
+| API server | `server.js` | Node.js endpoint that processes weather data requests |
+| Dependencies | `requirements.txt` | python-dotenv, transitions, aiohttp, dspy |
+
+The Python process calls the Node server. Both must be running.
+
+## Requirements
 
 - Python 3.7+
 - Node.js 14+
-- npm (Node Package Manager)
 
-## Installation
+## Setup
 
-1. Clone the repository:
-   ```
-   git clone https://github.com/yourusername/WANDA.git
-   cd WANDA
-   ```
+```bash
+git clone https://github.com/jmanhype/WANDA-Weather-Analysis-and-Notification-Data-Assistant.git
+cd WANDA-Weather-Analysis-and-Notification-Data-Assistant
+pip install -r requirements.txt
+npm install
+```
 
-2. Install Python dependencies:
-   ```
-   pip install -r requirements.txt
-   ```
-
-3. Install Node.js dependencies:
-   ```
-   npm install
-   ```
-
-## Configuration
-
-1. Create a `.env` file in the project root and add any necessary environment variables.
-
-2. Modify the `city` variable in `weather_notification.py` to set your desired location.
+Create a `.env` file for any required environment variables. Set the target city in `weather_notification.py`.
 
 ## Usage
 
-1. Start the Node.js server:
-   ```
-   node server.js
-   ```
+```bash
+# Terminal 1
+node server.js
 
-2. In a separate terminal, run the Python script:
-   ```
-   python weather_notification.py
-   ```
+# Terminal 2
+python weather_notification.py
+```
 
-## Project Structure
+## Status
 
-- `weather_notification.py`: Main Python script containing the WANDA agent
-- `server.js`: Node.js server for processing weather data requests
-- `ai_utils_bridge.py`: Bridge between Python and Node.js (not provided in the given files)
-- `requirements.txt`: Python dependencies
-- `package.json`: Node.js dependencies (not provided in the given files)
+Prototype. The Node server uses mock AI capabilities. There are no tests. The `ai_utils_bridge.py` referenced in the code is not included in the repository.
 
-## Contributing
+## Data Sources
 
-Contributions to WANDA are welcome! Please feel free to submit a Pull Request.
+- OpenStreetMap (geolocation)
+- Open-Meteo (weather)
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Acknowledgments
-
-- OpenStreetMap for geolocation data
-- Open-Meteo for weather data
-- Cloudflare AI Utils for AI capabilities simulation
+MIT
